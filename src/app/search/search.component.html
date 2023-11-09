@@ -1,0 +1,42 @@
+
+<div class="search-container">
+    <div class="back-container" [routerLink]="'/home'" matRipple>
+      <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;" >
+        <mat-icon>keyboard_arrow_up</mat-icon>
+        <p class="back-subtitle">Tap to go back</p>
+      </div>
+    </div>
+     
+    <div class="form-container">
+      <form class="search-form" (submit)="$event.preventDefault()">
+        <mat-form-field color="warn" style="width: 100%; opacity: 0.5;">
+          <mat-label class="search-label">search</mat-label>
+          <input type="search" matInput (cdkAutofill)="searchAutofilled = $event.isAutofilled"> 
+          <button matSuffix mat-icon-button aria-label="Search">
+            <mat-icon>search</mat-icon>
+          </button>
+        </mat-form-field>
+      </form>
+    </div>
+  
+    <mat-chip-set class="search-filters" aria-label="Food selection">
+      <mat-chip-option class="food-label">Snacks</mat-chip-option>
+      <mat-chip-option class="food-label">Meals</mat-chip-option>
+      <mat-chip-option class="food-label">Desserts</mat-chip-option>
+      <mat-chip-option class="food-label">Beverages</mat-chip-option>
+      <mat-chip-option class="food-label" color="accent" selected>Ingredients</mat-chip-option>
+      <mat-chip-option class="food-label" color="warn">Other</mat-chip-option>
+    </mat-chip-set>
+
+    <div class="search-results-background" cdkDropList (cdkDropListDropped)="drop($event)">
+
+        @for(item of placeHolderSearchResults; track item.title;) {
+          <app-search-result [item]="item" cdkDrag>
+            <div class="custom-placeholder" *cdkDragPlaceholder></div>
+          </app-search-result>
+        }
+     
+    </div>
+  </div>
+  
+  

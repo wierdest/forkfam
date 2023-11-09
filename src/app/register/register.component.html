@@ -1,0 +1,31 @@
+
+<div class="header-container">
+    <div class="background">
+        <app-bubbles></app-bubbles>
+    </div>
+    <div class="foreground">
+        <app-hallway></app-hallway>
+    </div>
+</div>
+<form class="form-container">
+    <mat-form-field appearance="outline" color="warn">
+        <mat-label>Enter a valid email</mat-label>
+        <input matInput placeholder="pat@example.com" [formControl]="email">
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        <mat-icon matPrefix>email</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline" color="warn">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="KindChef5768">
+        <mat-icon matPrefix>person</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline" color="warn">
+        <mat-label>Enter your password</mat-label>
+        <mat-icon matPrefix>lock</mat-icon>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+    <button mat-fab extended color="warn" [routerLink]="'/success'" >Register</button>
+</form>

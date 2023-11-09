@@ -1,0 +1,44 @@
+.avatar-container {
+    display: flex;
+    flex-direction: row;
+    width: 232px;
+    height: 84px;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4vh;
+    
+}
+
+.avatar {
+    display: flex;
+    width: 44px;
+    height: 24px;
+    padding: 11px 0px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: #FFD740;
+}
+
+.info-container {
+    margin: 0;
+
+}
+
+.username {
+    color: var(--light-text, #222133);
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.email {
+    color: var(--light-subtext, #7C7C7A);
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

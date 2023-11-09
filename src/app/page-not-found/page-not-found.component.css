@@ -1,0 +1,44 @@
+.header-container {
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    position: relative;
+    margin-top: 2vh;
+  }
+  
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Set the bubbles behind the hallway */
+}
+
+.foreground {
+    position: relative;
+    z-index: 2; /* Set the hallway in front of the bubbles */
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+    gap: 10px;
+}
+
+.title { 
+    font-family: Poppins;
+    font-size: 33px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-align: start;
+  }
+
+  .subtitle {
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+  }

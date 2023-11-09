@@ -1,0 +1,15 @@
+<svg width="400" height="340" viewBox="0 0 400 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- The unchanged ellipse -->
+  <ellipse cx="142.5" cy="143" rx="122.5" ry="123" fill="#E4B0ED" fill-opacity="0.19"/>
+
+  <!-- Four circles placed at each corner -->
+  <circle cx="10" cy="9" r="7" fill="#FCB495"/>
+  <circle cx="240" cy="30" r="7" fill="#FCB495" fill-opacity="0.93"/>
+  <circle cx="10" cy="240" r="7" fill="#FCB495" fill-opacity="0.83"/>
+  <circle cx="320" cy="320" r="8" fill="#FCB495"/>
+
+  <!-- Other circles and ellipses scattered randomly -->
+  <ellipse cx="350" cy="50" rx="11" ry="10" fill="#FFF9F3"/>
+  <ellipse cx="20" cy="300" rx="11" ry="10" fill="#FFD740"/>
+
+</svg>

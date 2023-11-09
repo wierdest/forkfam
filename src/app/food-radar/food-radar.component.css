@@ -1,0 +1,37 @@
+
+.dashboard-card {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    right: 2%;
+    bottom: 2%;
+    background-color: whitesmoke;
+  }
+
+.activity-image {
+    align-self: center;
+    width: 160px;
+    height: 160px;
+    border-radius: 120px;
+    margin-top: 2vh;
+}
+
+.title {
+    color: rgba(0, 0, 0, 0.70);
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+}
+
+.subtitle {
+    color: rgba(69, 71, 69, 0.47);
+    text-align: left;
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}

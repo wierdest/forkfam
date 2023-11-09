@@ -1,0 +1,127 @@
+.home-background {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    background-color: #FFF;
+    border-radius: 50px; /* Adjust the radius to your preference */
+    width: 100vw;
+    height: 100vh;
+    box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.sidenav {
+    padding: 20px;
+    border-radius: 50px; /* Adjust the radius to your preference */
+  }
+
+.sidenav-toggle {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2vh;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.sidenav-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 2vh;
+    gap:4vh;
+    margin-bottom: 4vh;
+}
+
+.sidenav-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+}
+
+.logout-container {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 2vh;
+}
+
+.location-selector {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2vw;
+}
+
+.current-location {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.location-title {
+    color: rgba(0, 0, 0, 0.70);
+    text-align: center;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+}
+
+.location-subtitle {
+    color: rgba(69, 71, 69, 0.47);
+    text-align: left;
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    transform: translateY(-4vh);
+}
+
+.section-subtitle {
+    color: rgba(69, 71, 69, 0.47);
+    text-align: left;
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.refresh-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    flex-direction: row;
+    width: 100%;
+    height: 59px;
+    border-radius: 10px 10px 50px 50px;
+    background-color: #64FFDA;
+    margin-top: 2vh;
+    cursor: pointer; /* Add this line to change the cursor to a pointer */
+}
+
+.placeholder-svg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vh;
+}
+
+
+  

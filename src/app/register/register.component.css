@@ -1,0 +1,22 @@
+.header-container {
+    position: relative;
+    margin-top: 2vh;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Set the bubbles behind the hallway */
+}
+
+.foreground {
+    position: relative;
+    z-index: 2; /* Set the hallway in front of the bubbles */
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+}

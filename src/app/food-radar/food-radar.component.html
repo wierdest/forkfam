@@ -1,0 +1,62 @@
+<div class="grid-container" >
+    <mat-grid-list cols="4" rowHeight="170px" cdkDropList (cdkDropListDropped)="drop($event)" >
+      @for(tile of tiles; track $index) {
+        <mat-grid-tile [colspan]="tile.cols" [rowspan]="tile.rows">
+          <mat-card class="dashboard-card mat-elevation-z8" matRipple cdkDrag>
+            <mat-card-header >
+              <div mat-card-avatar>
+                <mat-icon *ngIf="tile.type === 'Offer'">soup_kitchen</mat-icon>
+                <mat-icon *ngIf="tile.type === 'Request'">diversity_3</mat-icon>
+              </div>
+              <mat-card-title-group>
+                <mat-card-title class="title">
+                  {{ placeHolderItems[$index].title }}
+                </mat-card-title>
+                <mat-card-subtitle class="subtitle">
+                  by {{ placeHolderItems[$index].author}}
+                </mat-card-subtitle>
+              </mat-card-title-group>
+            </mat-card-header>
+            <img mat-card-image class="activity-image" style="background: url({{placeHolderItems[$index].imagePath}}) lightgray 50% / cover no-repeat;">
+            <mat-card-content class="dashboard-card-content">
+              <mat-card-actions style="gap: 1vw;" align="end">
+                <button mat-icon-button (click)="pickItem($index)" [routerLink]="['/item', $index]"><mat-icon>more</mat-icon></button>
+                <button mat-icon-button><mat-icon>favorite</mat-icon></button>
+              </mat-card-actions>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      }
+      <!-- <mat-grid-tile *ngFor="let tile of tiles; let i = index" [colspan]="tile.cols" [rowspan]="tile.rows">
+
+
+        <mat-card class="dashboard-card mat-elevation-z8" matRipple cdkDrag>
+          <mat-card-header >
+            <div mat-card-avatar>
+              <mat-icon *ngIf="tile.type === 'Offer'">soup_kitchen</mat-icon>
+              <mat-icon *ngIf="tile.type === 'Request'">diversity_3</mat-icon>
+            </div>
+            <mat-card-title-group>
+              <mat-card-title class="title">
+                {{ placeHolderItems[i].title }}
+              </mat-card-title>
+              <mat-card-subtitle class="subtitle">
+                by {{ placeHolderItems[i].author}}
+              </mat-card-subtitle>
+            </mat-card-title-group>
+          </mat-card-header>
+          <img mat-card-image class="activity-image" style="background: url({{placeHolderItems[i].imagePath}}) lightgray 50% / cover no-repeat;">
+          <mat-card-content class="dashboard-card-content">
+            <mat-card-actions style="gap: 1vw;" align="end">
+              <button mat-icon-button (click)="pickItem(i)" [routerLink]="['/item', i]"><mat-icon>more</mat-icon></button>
+              <button mat-icon-button><mat-icon>favorite</mat-icon></button>
+            </mat-card-actions>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile> -->
+    </mat-grid-list>
+  </div>
+  
+  
+  
+    

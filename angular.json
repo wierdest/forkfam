@@ -22,10 +22,20 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/plate.png",
+              "src/image-a.png",
+              "src/image-b.png",
+              "src/image-c.png",
+              "src/image-d.png",
+              "src/image-e.png",
+              "src/image-f.png",
+              "src/image-g.png"
             ],
             "styles": [
-              "src/styles.css"
+              "src/custom-theme.scss",
+              "src/styles.css",
+              "src/assets/fonts/poppins.css"
             ],
             "scripts": []
           },
@@ -91,5 +101,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

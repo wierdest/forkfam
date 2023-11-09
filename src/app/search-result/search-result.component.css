@@ -1,0 +1,25 @@
+.card {
+    width: 400px;
+    transform: translateY(-10px);
+    border-radius: 30px;
+}
+
+.title {
+    color: rgba(0, 0, 0, 0.70);
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+}
+
+.subtitle {
+    color: rgba(69, 71, 69, 0.47);
+    text-align: left;
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
