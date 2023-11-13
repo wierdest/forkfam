@@ -1,0 +1,23 @@
+<div>
+    
+    <div class="header-container">
+        <div class="image" style="background: url(/plate.png), #1DE9B6 50% / cover no-repeat;" >
+            <app-bubbles></app-bubbles>
+        </div>
+        <div class="title">Forkfam</div>
+        <div class="subtitle">Share food, build a family</div>
+    </div>
+
+   
+    <div class="button-container">
+        @if(authService.hasToken) {
+            <button mat-fab extended  color="accent" [routerLink]="'/home'"> 
+                Welcome back, {{authService.getDecodedTokenInfo()!.name}}!</button>
+
+            <button mat-fab extended  color="warn" (click)="signOut()"> 
+                Not you? Sign out!</button>
+        } @else {
+            <app-google-sign-in></app-google-sign-in>  
+        }
+    </div>
+</div>

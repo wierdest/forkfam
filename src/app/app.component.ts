@@ -6,7 +6,7 @@ import { slideFromTopAnimation } from './animations';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [ CommonModule, RouterOutlet,],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations:[
