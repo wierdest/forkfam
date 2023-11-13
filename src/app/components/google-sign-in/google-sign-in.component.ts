@@ -48,7 +48,7 @@ export class GoogleSignInComponent {
         if(token) {
           // Do something with the token, e.g., navigate to a specific route
           this._ngZone.run(() => {
-            this.router.navigate(['/success']);
+            this.router.navigate(['/home']);
           })
         } else {
           console.log('Token is not present');
