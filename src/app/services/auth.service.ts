@@ -1,26 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { JwtPayload } from 'app/models/jwt-payload.model';
 import { environment } from 'environments/environment';
 import { Observable, Subject, map } from 'rxjs';
-
-export interface JwtPayload {
-  aud: string;
-  azp: string;
-  email: string;
-  email_verified: boolean;
-  exp: number;
-  family_name: string;
-  given_name: string;
-  iat: number;
-  iss: string;
-  jti: string;
-  locale: string;
-  name: string;
-  nbf: number;
-  picture: string;
-  sub: string;
-}
 
 
 @Injectable({
@@ -58,7 +41,6 @@ export class AuthService {
   public decodeTokenFromLocalStorage(): any {
     // Retrieve the token from localStorage
     const storedToken = localStorage.getItem('g_token');
-
     if (storedToken) {
       // Decode the token and return the decoded payload
       return this.jwtHelper.decodeToken(storedToken);
@@ -76,5 +58,5 @@ export class AuthService {
     // Cast the decoded token to JwtPayload or return null if not found
     return decodedToken as JwtPayload;
   }
-
 }
+

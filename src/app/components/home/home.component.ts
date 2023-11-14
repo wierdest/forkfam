@@ -16,7 +16,8 @@ import { ChefComponent } from '../svg-components/chef/chef.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Subject, Subscription, map, takeUntil } from 'rxjs';
 import { MatRippleModule } from '@angular/material/core';
-import { AuthService, JwtPayload } from 'app/services/auth.service';
+import { AuthService } from 'app/services/auth.service';
+import { JwtPayload } from 'app/models/jwt-payload.model';
 
 
 @Component({

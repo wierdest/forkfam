@@ -5,11 +5,16 @@ import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { ItemComponent } from './components/item/item.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { homeGuard } from './guards/home.guard';
 
 export const routes: Routes = [
     { path: 'welcome', component: StartComponent, title: 'Hi, there!', data: { animation: 'WelcomePage'} },
 
-    { path: 'home', component: HomeComponent, title: 'Home', data: { animation: 'HomePage'} },
+    { 
+        path: 'home', component: HomeComponent, title: 'Home', data: { animation: 'HomePage'} ,
+        canActivate: [homeGuard]
+
+    },
 
     { path: 'farewell', component: LogoutComponent, title: 'Bye!', data: { animation: 'LogoutPage'} },
 
