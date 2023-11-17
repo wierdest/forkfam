@@ -109,7 +109,7 @@
     flex-direction: row;
     width: 100%;
     height: 59px;
-    border-radius: 10px 10px 50px 50px;
+    border-radius: 50px 50px 10px 10px;
     background-color: #64FFDA;
     margin-top: 2vh;
     cursor: pointer; /* Add this line to change the cursor to a pointer */
@@ -121,6 +121,33 @@
     align-items: center;
     justify-content: center;
     margin-top: 2vh;
+}
+
+
+.action-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    flex-direction: row;
+    width: 49%;
+    height: 59px;
+    border-radius: 10px 10px 50px 50px;
+    margin-top: 2vh;
+    cursor: pointer; /* Add this line to change the cursor to a pointer */
+}
+
+.action-button-container {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: fit-content;
+    border-radius: 10px 10px 50px 50px;
 }
 
 

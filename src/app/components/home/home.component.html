@@ -29,7 +29,7 @@
                 <div class="sidenav-button">
                     <mat-icon>bar_chart</mat-icon>
                     <button mat-button>
-                        Recent Orders
+                        Recent Activity
                     </button>
                 </div>
                 <div class="sidenav-button">
@@ -88,14 +88,14 @@
                 <mat-icon class="tab-icon">house</mat-icon>
               </ng-template>
               <p class="section-subtitle">Check your food radar to find generous offers and unique opportunities to help!</p>
-
-              <app-food-radar></app-food-radar>
-
               <div class="refresh-button mat-elevation-z4" matRipple (click)="refreshClicked()">
                 <mat-icon>refresh</mat-icon>
                 <p *ngIf="currentScreenSize != 'XSmall'" class="section-subtitle">Tap to refresh all or drag each to find a similar option!</p>
                 <p *ngIf="currentScreenSize == 'XSmall'" class="section-subtitle">Tap to refresh </p>
               </div>
+              <app-food-radar></app-food-radar>
+
+             
             </mat-tab>
             <mat-tab>
               <ng-template mat-tab-label>
@@ -110,7 +110,7 @@
               <ng-template mat-tab-label>
                 <mat-icon class="tab-icon">diversity_3</mat-icon>
               </ng-template>
-            <p class="section-subtitle">Find people willing to share their company and what food they have with you! Feel the love! Here the user can find opportunities to share food with people!</p>
+            <p class="section-subtitle">Find people willing to share their company and what food they have with you! Feel the love! Here the user can find opportunities to meet up and eat food with people!</p>
             <div class="placeholder-svg">
                 <app-eating-together></app-eating-together>
              </div>
@@ -124,6 +124,25 @@
                     <app-chef></app-chef>
                  </div>
               </mat-tab>
-          </mat-tab-group>
-    </mat-drawer-container>
+        </mat-tab-group>
+
+        <div class="action-button-container">
+            <div class="action-button mat-elevation-z8" style="background-color: #FF8A80;" matRipple (click)="refreshClicked()">
+                <mat-icon>refresh</mat-icon>
+                <p *ngIf="currentScreenSize != 'XSmall'" class="section-subtitle">Tap to refresh all or drag each to find a similar option!</p>
+                <p *ngIf="currentScreenSize == 'XSmall'" class="section-subtitle">Tap to refresh </p>
+            </div>
+    
+            <div class="action-button mat-elevation-z8" style="background-color: #FFD740;" matRipple (click)="refreshClicked()">
+                <mat-icon>refresh</mat-icon>
+                <p *ngIf="currentScreenSize != 'XSmall'" class="section-subtitle">Tap to refresh all or drag each to find a similar option!</p>
+                <p *ngIf="currentScreenSize == 'XSmall'" class="section-subtitle">Tap to refresh </p>
+            </div>
+            
+          </div>
+    
+    
+    
+        </mat-drawer-container>
+   
 </div>

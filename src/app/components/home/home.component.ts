@@ -18,6 +18,8 @@ import { Subject, Subscription, map, takeUntil } from 'rxjs';
 import { MatRippleModule } from '@angular/material/core';
 import { AuthService } from 'app/services/auth.service';
 import { JwtPayload } from 'app/models/jwt-payload.model';
+import { DatabaseService } from 'app/services/database.service';
+import { Item } from 'app/models/item.model';
 
 
 @Component({
@@ -46,14 +48,19 @@ export class HomeComponent {
     user: JwtPayload | null = null;
 
 
-   constructor(breakpointObserver: BreakpointObserver, private authService: AuthService, private router: Router) {
+   constructor(breakpointObserver: BreakpointObserver, 
+    private authService: AuthService, 
+    private router: Router,
+    private databaseService: DatabaseService
+    
+    ) {
      breakpointObserver
        .observe([
-         Breakpoints.XSmall,
-         Breakpoints.Small,
-         Breakpoints.Medium,
-         Breakpoints.Large,
-         Breakpoints.XLarge,
+        Breakpoints.XSmall,
+        Breakpoints.Small,
+        Breakpoints.Medium,
+        Breakpoints.Large,
+        Breakpoints.XLarge,
        ])
        .pipe(takeUntil(this.destroyed))
        .subscribe(result => {
@@ -66,13 +73,24 @@ export class HomeComponent {
    }
 
    ngOnInit() {
-
     this.user = this.authService.getDecodedTokenInfo();
     if(this.user) {
-      console.log('got a user!')
+      const sub = this.user.sub; // the sub is the  The subject: the ID that represents the principal making the request. 
+      console.log('got a user! Checking database for it');
+      this.databaseService.getUser(this.user.sub).then((myUser) => {
+        if(myUser) {
+          console.log(myUser?.googleUserInfo.given_name + 'is already our user');
+        } else {
+          console.log(this.user!.sub + 'is not our user yet. Adding them to the database right now');
+          const offers: Item[] = [];
+          const orders: Item[] = []
+          this.databaseService.addNewUser(this.user!.sub, this.user!, offers, orders);
+        }
+      })
+
     }
-    
    }
+
    ngOnDestroy() {
     this.destroyed.next();
     this.destroyed.complete();

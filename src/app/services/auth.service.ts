@@ -20,25 +20,25 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  public signOutExternal = () => {
+  signOutExternal = () => {
     localStorage.removeItem("g_token");
     this._hasToken = false; // Set to false when the token is removed
     this.tokenStatusSubject.next(null); // Notify about token status change
     console.log("Token deleted");
   }
 
-  public get hasToken(): boolean {
+  get hasToken(): boolean {
     // Expose the current token status
     return this._hasToken;
   }
 
-  public saveTokenToLocalStorage(token: string): void {
+  saveTokenToLocalStorage(token: string): void {
     localStorage.setItem('g_token', token);
     this._hasToken = true;
     this.tokenStatusSubject.next(token);
   }
 
-  public decodeTokenFromLocalStorage(): any {
+  private decodeTokenFromLocalStorage(): any {
     // Retrieve the token from localStorage
     const storedToken = localStorage.getItem('g_token');
     if (storedToken) {
@@ -51,7 +51,7 @@ export class AuthService {
   }
 
   // Update the method to return JwtPayload
-  public getDecodedTokenInfo(): JwtPayload | null {
+  getDecodedTokenInfo(): JwtPayload | null {
     // Get the decoded payload from the token
     const decodedToken = this.decodeTokenFromLocalStorage();
 
