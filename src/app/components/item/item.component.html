@@ -1,18 +1,13 @@
 <!-- <div class="round-decorative-background"></div> -->
 <div class="item-container">
-    <div class="back-container" [routerLink]="'/home'" matRipple>
-      <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;" >
-        <mat-icon>keyboard_arrow_up</mat-icon>
-        <p class="back-subtitle">Tap to go back</p>
-      </div>
-  </div>
+    <app-toptap></app-toptap>
   <div class="grid-container">
     <mat-grid-list cols="3" rowHeight="100px"cdkDropList (cdkDropListDropped)="drop($event)" >
     </mat-grid-list>
   </div>
   <div class="item-card-container">
     <mat-card class="item-card">
-      <img mat-card-image [src]="item?.imagePath" alt="Photo of a Shiba Inu">  
+      <img mat-card-image [src]="'/assets/images/' + item?.imagePath" alt="Photo of a Shiba Inu">  
       <mat-card-header>
         <mat-card-title class="title">{{item?.title}}</mat-card-title>
         <mat-card-subtitle class="subtitle">{{item?.author}}</mat-card-subtitle>

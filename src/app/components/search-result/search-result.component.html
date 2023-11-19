@@ -3,7 +3,7 @@
       <mat-card-title-group>
         <mat-card-title class="title">{{item?.title}}</mat-card-title>
         <mat-card-subtitle class="subtitle">{{item?.subtitle}}</mat-card-subtitle>
-        <img mat-card-sm-image [src]="item?.imagePath">
+        <img mat-card-sm-image [src]="'/assets/images/' + item?.imagePath">
       </mat-card-title-group>
     </mat-card-header>
     <mat-card-content>

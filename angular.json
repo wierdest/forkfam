@@ -22,15 +22,10 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/plate.png",
-              "src/image-a.png",
-              "src/image-b.png",
-              "src/image-c.png",
-              "src/image-d.png",
-              "src/image-e.png",
-              "src/image-f.png",
-              "src/image-g.png"
+              "src/assets/",
+              "src/assets/images/",
+              "src/assets/images/sdgs"
+
             ],
             "styles": [
               "src/custom-theme.scss",

@@ -1,0 +1,18 @@
+.back-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 60px;
+    width: 100vw;
+    cursor: pointer;
+}
+
+.back-subtitle {
+    color: rgba(69, 71, 69, 0.47);
+    text-align: left;
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}

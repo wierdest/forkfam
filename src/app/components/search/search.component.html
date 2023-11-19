@@ -1,11 +1,6 @@
 
 <div class="search-container">
-    <div class="back-container" [routerLink]="'/home'" matRipple>
-      <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;" >
-        <mat-icon>keyboard_arrow_up</mat-icon>
-        <p class="back-subtitle">Tap to go back</p>
-      </div>
-    </div>
+    <app-toptap></app-toptap>
      
     <div class="form-container">
       <form class="search-form" (submit)="$event.preventDefault()">

@@ -6,6 +6,7 @@ import { SearchComponent } from './components/search/search.component';
 import { ItemComponent } from './components/item/item.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { homeGuard } from './guards/home.guard';
+import { AboutComponent } from './components/about/about.component';
 
 export const routes: Routes = [
     { path: 'welcome', component: StartComponent, title: 'Hi, there!', data: { animation: 'WelcomePage'} },
@@ -19,6 +20,8 @@ export const routes: Routes = [
     { path: 'search', component: SearchComponent, title: 'Search', data: { animation: 'SearchPage'} },
 
     { path: 'item/:id', component: ItemComponent, title: 'Yummy!', data: { animation: 'ItemPage'} },
+
+    { path: 'about', component: AboutComponent, title: 'Goals', data: { animation: 'AboutPage'}},
 
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
 

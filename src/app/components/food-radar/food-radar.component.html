@@ -5,8 +5,13 @@
           <mat-card class="dashboard-card mat-elevation-z8" matRipple cdkDrag>
             <mat-card-header >
               <div mat-card-avatar>
-                <mat-icon *ngIf="tile.type === 'Offer'">soup_kitchen</mat-icon>
-                <mat-icon *ngIf="tile.type === 'Request'">diversity_3</mat-icon>
+                @if(tile.type === 'Offer') {
+                  <mat-icon>soup_kitchen</mat-icon>
+                } @else {
+                  <mat-icon>diversity_3</mat-icon>
+                }
+                <!-- <mat-icon *ngIf="tile.type === 'Offer'">soup_kitchen</mat-icon>
+                <mat-icon *ngIf="tile.type === 'Request'">diversity_3</mat-icon> -->
               </div>
               <mat-card-title-group>
                 <mat-card-title class="title">
@@ -17,7 +22,7 @@
                 </mat-card-subtitle>
               </mat-card-title-group>
             </mat-card-header>
-            <img mat-card-image class="activity-image" style="background: url({{placeHolderItems[$index].imagePath}}) lightgray 50% / cover no-repeat;">
+            <img mat-card-image class="activity-image" style="background: url(/assets/images/{{placeHolderItems[$index].imagePath}}) lightgray 50% / cover no-repeat;">
             <mat-card-content class="dashboard-card-content">
               <mat-card-actions style="gap: 1vw;" align="end">
                 <button mat-icon-button (click)="pickItem($index)" [routerLink]="['/item', $index]"><mat-icon>more</mat-icon></button>
