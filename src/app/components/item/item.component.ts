@@ -13,12 +13,14 @@ import { Subscription, Subject, takeUntil } from 'rxjs';
 import { Item } from 'app/models/item.model';
 import { ItemService } from 'app/services/item.service';
 import { PlaceholderItems } from 'app/models/placeholder-model';
+import { ToptapComponent } from '../toptap/toptap.component';
 
 
 @Component({
   selector: 'app-item',
   standalone: true,
-  imports: [CommonModule, RouterModule, DragDropModule, MatRippleModule, MatButtonModule, MatGridListModule, MatCardModule, MatIconModule],
+  imports: [CommonModule, RouterModule, DragDropModule, MatRippleModule, 
+    MatButtonModule, MatGridListModule, MatCardModule, MatIconModule, ToptapComponent],
   templateUrl: './item.component.html',
   styleUrl: './item.component.css'
 })

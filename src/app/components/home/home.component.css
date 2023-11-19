@@ -25,14 +25,6 @@
     flex: 1 1 auto;
 }
 
-.home-content {
-    display: flex;
-    flex-direction: column;
-    height: fit-content;
-    align-items: center;
-    justify-content: center;
-}
-
 
 .sidenav-buttons {
     display: flex;

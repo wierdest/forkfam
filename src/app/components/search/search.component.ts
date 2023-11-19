@@ -14,12 +14,13 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 import { BubblesComponent } from 'app/components/svg-components/bubbles/bubbles.component';
 import { MatButtonModule } from '@angular/material/button';
+import { ToptapComponent } from '../toptap/toptap.component';
 
 @Component({
   selector: 'app-search',
   standalone: true,
   imports: [CommonModule, RouterModule, MatIconModule, MatRippleModule,  MatFormFieldModule, MatChipsModule, MatButtonModule, 
-  SearchResultComponent, BubblesComponent, DragDropModule, MatCardModule, MatInputModule],
+  SearchResultComponent, BubblesComponent, DragDropModule, MatCardModule, MatInputModule, ToptapComponent],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css',
   schemas: [NO_ERRORS_SCHEMA]

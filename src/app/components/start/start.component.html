@@ -1,14 +1,15 @@
 <div>
     
     <div class="header-container">
-        <div class="image" style="background: url(/plate.png), #1DE9B6 50% / cover no-repeat;" >
+        <div class="image" style="background: url(/assets/images/plate.png), #1DE9B6 50% / cover no-repeat;" >
             <app-bubbles></app-bubbles>
         </div>
-        <div class="title">Forkfam</div>
+        <div class="logo">
+            <img src="/assets/images/forkfam_logo.png" style="max-height: 100px; max-width: 20vw;" alt="">
+        </div>
         <div class="subtitle">Share food, build a family</div>
     </div>
 
-   
     <div class="button-container">
         @if(authService.hasToken) {
             <button mat-fab extended  color="accent" [routerLink]="'/home'"> 
