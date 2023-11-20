@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { Subject, takeUntil } from 'rxjs';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatRippleModule } from '@angular/material/core';
 
 @Component({
   selector: 'app-sdgs-icons',
   standalone: true,
-  imports: [CommonModule, MatGridListModule],
+  imports: [CommonModule, MatGridListModule, MatRippleModule],
   templateUrl: './sdgs-icons.component.html',
   styleUrl: './sdgs-icons.component.css'
 })
