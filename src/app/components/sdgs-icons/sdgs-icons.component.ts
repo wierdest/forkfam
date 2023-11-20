@@ -4,13 +4,22 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { Subject, takeUntil } from 'rxjs';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRippleModule } from '@angular/material/core';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-sdgs-icons',
   standalone: true,
   imports: [CommonModule, MatGridListModule, MatRippleModule],
   templateUrl: './sdgs-icons.component.html',
-  styleUrl: './sdgs-icons.component.css'
+  styleUrl: './sdgs-icons.component.css',
+  animations: [
+    trigger('floatUp', [
+      transition(':enter', [
+        style({ transform: 'translateY(100%)', opacity: 0 }),
+        animate('1.0s ease-out', style({ transform: 'translateY(0)', opacity: 1 })),
+      ]),
+    ]),
+  ],
 })
 export class SdgsIconsComponent {
 
@@ -87,7 +96,7 @@ export class SdgsIconsComponent {
 
   private buildGridList(dataList: string[], size: string): any[] {
     return dataList.map(data => {
-      return { data, ...this.getGridConfigSize(size) };
+      return { data, ...this.getGridConfigSize(size), hoverState: false, };
     });
   }
 

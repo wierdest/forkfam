@@ -1,14 +1,11 @@
 
 .about-container {
     display: flex;
-    flex-grow:0;
     flex-direction: column;
     align-items:  flex-start;
     justify-content: flex-start;
-    border-radius: 50px; /* Adjust the radius to your preference */
     width: 100vw;
     height: 100vh;
-
 }
 
 .header-and-subtitle-container {
@@ -16,7 +13,6 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
-    width: 100%;
     height: fit-content;
     padding-left: 2%;
     padding-right: 2%;
