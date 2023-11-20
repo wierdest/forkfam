@@ -3,7 +3,7 @@ export const SDGS_DESCRIPTIONS = [
     'End hunger, achieve food security and improved nutrition and promote sustainable agriculture.',
     'Ensure healthy lives and promote well-being for all at all ages.',
     'Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all.',
-    'Achieve gender equality and empower all women and girls',
+    'Achieve gender equality and empower all women and girls.',
     'Ensure availability and sustainable management of water and sanitation for all.',
     'Ensure access to affordable, reliable, sustainable and modern energy for all.',
     'Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all.',

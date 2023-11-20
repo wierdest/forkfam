@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "forkfam",
+    "public": "dist/ff",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
