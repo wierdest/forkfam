@@ -14,7 +14,7 @@ import { FiltersComponent } from '../svg-components/filters/filters.component';
 import { EatingTogetherComponent } from '../svg-components/eating-together/eating-together.component';
 import { ChefComponent } from '../svg-components/chef/chef.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Subject, Subscription, map, takeUntil } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 import { MatRippleModule } from '@angular/material/core';
 import { AuthService } from 'app/services/auth.service';
 import { JwtPayload } from 'app/models/jwt-payload.model';

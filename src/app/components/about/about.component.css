@@ -44,6 +44,17 @@
 
 }
 
+.sidenav {
+    padding: 20px;
+    border-radius: 50px; /* Adjust the radius to your preference */
+  }
+
+.sidenav-toggle {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2vh;
+}
+
 
 
 

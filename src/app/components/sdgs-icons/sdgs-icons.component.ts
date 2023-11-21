@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { Subject, takeUntil } from 'rxjs';
@@ -22,6 +22,12 @@ import { trigger, transition, style, animate } from '@angular/animations';
   ],
 })
 export class SdgsIconsComponent {
+
+  @Output() drawerOpen = new EventEmitter<void>();
+
+  openDrawer() {
+    this.drawerOpen.emit();
+  }
 
   // Inject BreakpointObserver to make the UI adaptive
   destroyed = new Subject<void>();
