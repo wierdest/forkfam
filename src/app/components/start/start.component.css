@@ -1,60 +1,61 @@
-.header-container {
-    position: relative;
-    margin-top: 2vh;
-  }
-  
-  .background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1; /* Set the bubbles behind the hallway */
-  }
-  
-  .foreground {
-    position: relative;
-    z-index: 2; /* Set the hallway in front of the bubbles */
-  }
-  
-  .bubbles {
-    flex-shrink: 0;
-  }
-  
-  .image {
-    position: relative;
-    width: 417px;
-    height: 318px;
-    z-index: 1;
-  }
-  
-  .title { 
-    font-family: Poppins;
-    font-size: 33px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-    color: white;
-    text-align: start;
-  }
-  
-  .subtitle {
-    color: #FFF;
-    font-family: Poppins;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-  }
-  
-  .button-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Adjust the space between the items to your preference */
-    margin: 10vh;
-  }
 
-  .linear-gradient {
-    margin-top: 10vh;
-    background: linear-gradient(to right, #FFD740 0%, #FF8A80 100%);
-    width: 100%;
-  }
+.start-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  max-width: 400px;
+  overflow: hidden;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+}
+
+.background {
+  z-index: 1;
+}
+
+.foreground {
+  z-index: 2;
+  
+}
+
+.title { 
+  font-family: Poppins;
+  font-size: 33px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-align: start;
+  overflow: hidden;
+}
+  
+.subtitle {
+  color: #FFF;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Adjust the space between the items to your preference */
+  margin-top: 10%;
+  width: 100%;
+}
+
+.linear-gradient {
+  margin-top: 10vh;
+  background: linear-gradient(to right, #FFD740 0%, #FF8A80 100%);
+  width: 100%;
+}
   

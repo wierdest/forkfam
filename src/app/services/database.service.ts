@@ -10,16 +10,17 @@ export class DatabaseService {
 
   db: IDBDatabase | null = null;
   // database is extremely simple
-  private storeName: string = 'users';
-  private keyPath: string = 'sub'
+  private userStore: string = 'users';
+  private userKeyPath: string = 'sub'
 
+  
   openDatabase(databaseName: string, version: number) : Promise<User[]> {
     return new Promise<User[]>((resolve, reject) => {
       const request = indexedDB.open(databaseName, version);
       request.onupgradeneeded = (event: any) => {
         const db = event.target.result;
-        if(!db.objectStoreNames.contains(this.storeName)) {
-          db.createObjectStore(this.storeName, { keyPath: this.keyPath});
+        if(!db.objectStoreNames.contains(this.userStore)) {
+          db.createObjectStore(this.userStore, { keyPath: this.userKeyPath});
           // I don't think we need any indexes right now
         }
       }
@@ -27,8 +28,8 @@ export class DatabaseService {
       request.onsuccess = (event: any) => {
         this.db = event.target.result;
         // Create the USERS store
-        const transaction = this.db!.transaction(this.storeName, 'readonly');
-        const store = transaction.objectStore(this.storeName);
+        const transaction = this.db!.transaction(this.userStore, 'readonly');
+        const store = transaction.objectStore(this.userStore);
         const users: User[] = [];
 
         const cursorRequest = store.openCursor();
@@ -59,8 +60,8 @@ export class DatabaseService {
         return;
       }
   
-      const transaction = this.db.transaction(this.storeName, 'readonly');
-      const store = transaction.objectStore(this.storeName);
+      const transaction = this.db.transaction(this.userStore, 'readonly');
+      const store = transaction.objectStore(this.userStore);
   
       const getRequest = store.get(keyPathValue);
   
@@ -102,8 +103,8 @@ export class DatabaseService {
         return;
       }
   
-      const transaction = this.db.transaction(this.storeName, 'readwrite');
-      const store = transaction.objectStore(this.storeName);
+      const transaction = this.db.transaction(this.userStore, 'readwrite');
+      const store = transaction.objectStore(this.userStore);
   
       const addRequest = store.add(user);
   
@@ -131,8 +132,8 @@ export class DatabaseService {
         reject(new Error('Database has not been opened yet!'));
         return;
       }
-      const transaction = this.db.transaction(this.storeName, 'readwrite');
-      const store = transaction.objectStore(this.storeName);
+      const transaction = this.db.transaction(this.userStore, 'readwrite');
+      const store = transaction.objectStore(this.userStore);
   
       const deleteRequest = store.delete(keyPathValue);
   
@@ -160,8 +161,8 @@ export class DatabaseService {
         return;
       }
   
-      const transaction = this.db.transaction(this.storeName, 'readwrite');
-      const store = transaction.objectStore(this.storeName);
+      const transaction = this.db.transaction(this.userStore, 'readwrite');
+      const store = transaction.objectStore(this.userStore);
 
       // Clear all data in the 'tracks' object store.
       const clearRequest = store.clear();

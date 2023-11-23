@@ -1,7 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Chart, Tooltip, TooltipItem } from 'chart.js/auto';
-import { SDGS_DESCRIPTIONS } from 'app/models/sdgs-descriptions.model';
+import { Chart, TooltipItem } from 'chart.js/auto';
+import { Subscription } from 'rxjs';
+import { SdgService } from 'app/services/sdg.service';
 
 @Component({
   selector: 'app-sdgs-doughnut',
@@ -13,6 +14,9 @@ import { SDGS_DESCRIPTIONS } from 'app/models/sdgs-descriptions.model';
 export class SdgsDoughnutComponent {
 
   @ViewChild('doughnutCanvas') doughnutCanvas!: ElementRef;
+
+  chart: Chart<'doughnut'> | null = null;
+  lastHidden: number | undefined;
 
   icons: HTMLImageElement[] = this.createSDGSIconsArray();
   private createSDGSIconsArray() : HTMLImageElement[] {
@@ -28,8 +32,40 @@ export class SdgsDoughnutComponent {
     }
     return array;
   }
+  
+  private subscription: Subscription | undefined;
 
-  iconDescriptions = SDGS_DESCRIPTIONS;
+  constructor(private sdgService: SdgService) {}
+
+  ngOnInit() {
+    this.subscription = this.sdgService.selectedGoal$.subscribe((selectedGoal) => {
+      this.hideOrShowData(selectedGoal);
+    });
+  }
+
+  hideOrShowData(index: number) {
+    if(this.chart === null) {
+      console.log('Chart is null!');
+      return;
+    }
+    if(this.lastHidden === undefined) {
+      console.log('last is undefined, so hide:', index);
+      this.lastHidden = index;
+      this.chart.hide(0, index);
+    } else {
+      console.log('last is not undefined');
+      if(this.lastHidden === index) {
+        console.log('last is the same')
+        this.chart.show(0, index);
+        this.lastHidden = undefined;
+      } else {
+        this.chart.show(0, this.lastHidden);
+        this.chart.hide(0, index);
+        this.lastHidden = index;
+
+      }
+    }
+  }
 
   ngAfterViewInit(): void {
     const context = this.doughnutCanvas.nativeElement.getContext('2d');
@@ -38,27 +74,14 @@ export class SdgsDoughnutComponent {
     Chart.defaults.font.size = 24;
     const data = {
      
-      labels: [
-        'No Poverty', 'Zero Hunger', 'Good Health and Well-Being', 'Quality Education', 'Gender Equality',
-        'Clean Water and Sanitation', 'Affordable and Clean Energy', 'Decent Work and Economic Growth',
-        'Industry, Innovation, and Infrastructure', 'Reduced Inequalities', 'Sustainable Cities and Communities',
-        'Responsible Consumption and Production', 'Climate Action', 'Life Below Water', 'Life on Land',
-        'Peace, Justice, and Strong Institutions', 'Partnerships for the Goals'
-      ],
+      labels: this.sdgService.sgdIconLabels,
       datasets: [{
         data: this.getMockData(), // Call the method to generate mock data
-        backgroundColor: ['#eb1c2dff', '#d3a029ff', '#279b48ff',
-        '#c31f33ff', '#ef402bff', '#00aed9ff', '#fdb713ff', '#8f1838ff',
-        '#f36d25ff', '#e11484ff', '#f99d26ff', '#cf8d2aff', '#48773eff',
-        '#007dbcff', '#5dbb46ff', '#02558bff', '#183668ff'
-      
-        ],
+        backgroundColor: this.sdgService.sdgIconColors,
       }],
       hoverOffset: 4,
 
     };
-
-    
 
     const image = new Image();
     image.src = '/assets/images/forkfam_logo_mini.png';
@@ -184,7 +207,7 @@ export class SdgsDoughnutComponent {
       tooltipEl.style.padding = tooltip.options.padding + 'px ' + tooltip.options.padding + 'px';
     };
 
-    const chart = new Chart(context, {
+    this.chart = new Chart(context, {
       type: 'doughnut',
       data: data,
       plugins: [imagePlugin],
@@ -259,7 +282,7 @@ export class SdgsDoughnutComponent {
                 },
 
                 footer: (context : TooltipItem<'doughnut'>[]) => {
-                  const raw = this.iconDescriptions[context[0].dataIndex];
+                  const raw = this.sdgService.sdgIconDescriptions[context[0].dataIndex];
                   if(raw.length > 35) {
                     return this.splitString(raw);
                   }
@@ -276,7 +299,7 @@ export class SdgsDoughnutComponent {
             
                 labelPointStyle: (context) => {
                   return {
-                    pointStyle: this.icons[context.dataIndex],
+                    pointStyle: this.sdgService.sdgIconImages[context.dataIndex],
                     rotation: 0,
                   };
 
@@ -302,6 +325,16 @@ export class SdgsDoughnutComponent {
     });
   }
 
+
+  ngOnDestroy() {
+    // Make sure to unsubscribe to prevent memory leaks
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
+
+
+ 
   private splitString(input: string): string[] {
     const words = input.split(' ');
     const result: string[] = [];

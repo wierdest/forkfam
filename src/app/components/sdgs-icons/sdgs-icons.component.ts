@@ -5,6 +5,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRippleModule } from '@angular/material/core';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { SdgService } from 'app/services/sdg.service';
 
 @Component({
   selector: 'app-sdgs-icons',
@@ -24,8 +25,11 @@ import { trigger, transition, style, animate } from '@angular/animations';
 export class SdgsIconsComponent {
 
   @Output() drawerOpen = new EventEmitter<void>();
+  @Output() selectedGoal = new EventEmitter<number>();
 
-  openDrawer() {
+  openDrawer(index: number) {
+    
+    this.sdgService.updateSelectedGoal(index);
     this.drawerOpen.emit();
   }
 
@@ -42,7 +46,7 @@ export class SdgsIconsComponent {
       [Breakpoints.XLarge, 'XLarge'],
     ]);
  
-  constructor(breakpointObserver: BreakpointObserver) {
+  constructor(breakpointObserver: BreakpointObserver, private sdgService: SdgService) {
     breakpointObserver
     .observe([
       Breakpoints.XSmall,
@@ -68,25 +72,11 @@ export class SdgsIconsComponent {
     });
 
   }
- 
-  icons: string[] = this.createSDGSIconsArray();
-  private createSDGSIconsArray() : string[] {
-    const iconBasePath = '/assets/images/sdgs/E-WEB-Goal-'
-    const array = [];
-    for (let i = 1; i <= 17; i++) {
-      // Use String literal and padStart to achieve the '01', '02', ..., '17' format
-      const filename: string = `${iconBasePath}${i.toString().padStart(2, '0')}.png`;
-
-      array.push(filename);
-    }
-    return array;
+  private grid = {
+    wide: { cols: 1, rows: 3 },
+    narrow: { cols: 2 , rows: 4 },
+    tooNarrow: { cols: 4, rows: 3 }
   }
- 
-   private grid = {
-     wide: { cols: 1, rows: 3 },
-     narrow: { cols: 2 , rows: 4 },
-     tooNarrow: { cols: 4, rows: 3 }
-   }
  
   private getGridConfigSize(size: string) : any {
     if(size === 'wide') {
@@ -106,10 +96,10 @@ export class SdgsIconsComponent {
     });
   }
 
-  private WIDE = this.buildGridList(this.icons, 'wide');
+  private WIDE = this.buildGridList(this.sdgService.sdgIconPaths, 'wide');
 
-  private NARROW = this.buildGridList(this.icons, 'narrow');
+  private NARROW = this.buildGridList(this.sdgService.sdgIconPaths, 'narrow');
 
-  private TOO_NARROW = this.buildGridList(this.icons, 'tooNarrow');
+  private TOO_NARROW = this.buildGridList(this.sdgService.sdgIconPaths, 'tooNarrow');
 
 }

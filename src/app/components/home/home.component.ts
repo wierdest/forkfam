@@ -107,4 +107,6 @@ export class HomeComponent {
     this.router.navigate(['/farewell'])
   }
 
+  
+
 }

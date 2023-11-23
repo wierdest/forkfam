@@ -32,6 +32,7 @@ export class GoogleSignInComponent {
           client_id: this.clientId,
           callback: this.handleCredentialResponse.bind(this),
           auto_select: false,
+          ux_mode: "popup",
           cancel_on_tap_outside: true
         });
         // @ts-ignore
@@ -41,7 +42,7 @@ export class GoogleSignInComponent {
           { theme: "outline", size: "large", width: "100%", shape:"pill" } 
         );
         // @ts-ignore
-        google.accounts.id.prompt((notification: PromptMomentNotification) => {});
+        // google.accounts.id.prompt((notification: PromptMomentNotification) => {});
       };
 
       this.tokenStatusSubscription = this.service.tokenStatus$.subscribe((token) => {

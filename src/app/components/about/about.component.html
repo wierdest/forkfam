@@ -17,17 +17,45 @@
 
   <mat-drawer-container class="about-container" style="border-radius: 50px;">
 
-    <mat-drawer #drawer class="sidenav">
+    <mat-drawer #drawer class="sidenav" (closed)="refreshSdgs()">
       <div class="sidenav-toggle">
         <button mat-icon-button (click)="drawer.toggle()">
             <mat-icon>keyboard_arrow_left</mat-icon>
         </button>
-    </div>
-      <div style=>
-        
-      </div>
+        </div>
+        <div class="sidenav-content">
+          <div class="mat-elevation-8" style="display: flex; flex-direction: row; border-radius: 50px; box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.25);">
+            <mat-card style="border-radius: 50px 0px 0px 50px">
+              <mat-card-header>
+                <img mat-card-avatar src="/assets/images/forkfam_logo_mini.png" style="min-width: 40px;">
+                <mat-card-title class="card-title">forkfam</mat-card-title>
+                <mat-card-subtitle class="card-subtitle">is actively designed in support of</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <form>
+                  <mat-form-field style="width: 100%">
+                    <textarea #message style="min-height: 80px; max-height: 200px;" matInput placeholder="Write about how forkfam helps us achieve this goal"></textarea>
+                    <mat-hint align="end">{{message.value.length}}</mat-hint>
+                  </mat-form-field>
+                </form>
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-button>EDIT</button>
+                <button mat-button>SAVE</button>
+                <button mat-button>UNDO</button>
+                <button mat-button>LOAD</button>
+                <button mat-button (click)="toggleFlip()">SHOW</button>
 
-
+              </mat-card-actions>
+            </mat-card>
+            <div class="flip-container" [class.flipped]="isFlipped" style="overflow: hidden" >
+              <div class="flipper">
+                <img  class="front" [src]="sdgService.sdgIconPaths[selectedGoal - 1]"> 
+                <div class="back" [style.background-color]="sdgService.sdgIconColors[selectedGoal -1]"></div>
+              </div>
+            </div>
+          </div>
+        </div>
     </mat-drawer>
     <div class="content-container">
       <app-sdgs-doughnut></app-sdgs-doughnut>

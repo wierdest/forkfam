@@ -2,7 +2,7 @@
     <mat-grid-list cols="4" rowHeight="170px" cdkDropList (cdkDropListDropped)="drop($event)" >
       @for(tile of tiles; track $index) {
         <mat-grid-tile [colspan]="tile.cols" [rowspan]="tile.rows">
-          <mat-card class="dashboard-card mat-elevation-z8" matRipple cdkDrag>
+          <mat-card class="dashboard-card mat-elevation-z8" matRipple >
             <mat-card-header >
               <div mat-card-avatar>
                 @if(tile.type === 'Offer') {
